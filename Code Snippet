@@ -1,0 +1,11 @@
+import pandas as pd
+
+
+# Specify the columns to drop
+columns_to_drop = ['Age', 'Salary']
+
+# Use the drop() method to remove the specified columns
+df = df.drop(columns=columns_to_drop)
+
+# Display the updated DataFrame
+print(df)
