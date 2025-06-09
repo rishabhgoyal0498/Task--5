@@ -1,9 +1,29 @@
 import pandas as pd
+# Check for columns with a high percentage of missing values
+missing_percentages = df.isnull().mean() * 100
+print("Missing value percentages per column:\n", missing_percentages)
+
+# Check for columns with low variance (potentially constant or near-constant values)
+# Ensure numerical columns for variance calculation
+numerical_cols = df.select_dtypes(include=np.number).columns
+if not numerical_cols.empty:
+    variance = df[numerical_cols].var()
+    print("\nVariance per numerical column:\n", variance)
+else:
+    print("\nNo numerical columns found to calculate variance.")
+
+
+# You would need to analyze the output of the above and the dataset's context
+# to determine the "most unneeded" column.
+# For example, a column with 99% missing values is likely unneeded.
+# A column with near-zero variance might also be unneeded if its value is constant.
+# Domain knowledge about the dataset is crucial for a final decision.
 
 
 # Specify the columns to drop
-columns_to_drop = ['Age', 'Salary']
+columns_to_drop = ['Age']
 
+#Removing the age column 
 # Use the drop() method to remove the specified columns
 df = df.drop(columns=columns_to_drop)
 
