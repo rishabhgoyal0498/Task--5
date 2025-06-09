@@ -21,9 +21,9 @@ else:
 
 
 # Specify the columns to drop
-columns_to_drop = ['Age']
+columns_to_drop = ['mean_smoothness']
 
-#Removing the age column 
+#Removing the mean_smoothness column as the variance is very near to zero and doesn't made much difference to values
 # Use the drop() method to remove the specified columns
 df = df.drop(columns=columns_to_drop)
 
